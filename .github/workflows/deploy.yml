@@ -12,8 +12,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
       - name: Install dependencies
-        uses: npm i
+        run: npm ci
 
       - name: Build
         run: npm run build
