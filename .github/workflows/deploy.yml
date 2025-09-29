@@ -17,3 +17,8 @@ jobs:
           echo "Testing"
           echo "Results"
           pwd
+
+      - name: Use built-in variables saved in GitHub Actions
+        run: |
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_SHA
