@@ -1,4 +1,4 @@
-name: GitHub Actions Deployment
+name: Deploy To S3
 
 on:
   push:
@@ -7,23 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest # 운영체제: ubuntu 최신 버전 (linux)
+    runs-on: ubuntu-latest
     steps:
-      - name: Print Hello World
-        run: echo "Hello World"
-
-      - name: Write multiple commands
-        run: |
-          echo "Testing"
-          echo "Results"
-          pwd
-
-      - name: Use built-in variables saved in GitHub Actions
-        run: |
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_SHA
-
-      - name: Use GitHub Actions secret variable
-        run: |
-          echo ${{ secrets.MY_NAME }}
-          echo ${{ secrets.MY_HOBBY }}
+      - name: Checkout Repository
+        uses: actions/checkout@v4
