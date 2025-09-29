@@ -39,5 +39,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Delete existing files in S3
-        run: |
-          aws s3 rm --recursive s3://bootcamp-practicebucket
+        run: aws s3 rm --recursive s3://bootcamp-practicebucket
+
+      - name: Upload build files to S3
+        run: aws s3 cp ./dist s3://bootcamp-practicebucket --recursive
